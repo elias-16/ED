@@ -60,11 +60,11 @@ public class ListaSequencial {
 
 	  // 6. Inserir um elemento em uma posição
 
-	  public void InserirValor(int pos, int valor){
+	  public int InserirValor(int pos, int valor){
 
 	    if((pos < 1) || (pos > tamAtual + 1) || (tamAtual == tamMax)){
 	      System.out.println("Posição inválida");
-	      System.exit(0);
+	      return -1;
 	    }
 
 	   for(int i = tamAtual - 1; i >= pos - 1; i--){
@@ -72,21 +72,22 @@ public class ListaSequencial {
 	   }
 	    dados[pos - 1] = valor;
 	    tamAtual++;
+	    return 0;
 	  } 
 
 	  // 7. Retirar elemento de uma posição
 
-	  public void RetirarValor(int pos){
+	  public int RetirarValor(int pos){
 	    if((pos < 1) || (pos > tamAtual)){
 	      System.out.println("Posição inválida");
-	      System.exit(0);
+	      return -1;
 	    }
 	    
 	    for(int i = pos - 1; i < tamAtual - 1; i++) {
 	    	dados[i] = dados[i+1];
 	    }
-	    
 	    tamAtual--;
+	    return 0;
 	  }
 	  
 	  // Imprimir lista (para facilitar os testes) 
